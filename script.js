@@ -2,7 +2,7 @@ let square = document.querySelector('#square'); //Square shaped parent container
 
 // Create "gridsize" number of pixels inside square
 function createGrid(gridSize) {
-    let pixels = document.querySelectorAll('.pixel');
+    getPixels();
     if (pixels !== null) removeGrid();
     pixels = [];
     let gridSizeSquare = gridSize*gridSize;
@@ -48,10 +48,18 @@ function eraze() {
 
 // Remove all pixels created
 function removeGrid() {
-    let pixels = document.querySelectorAll('.pixel');
+    getPixels();
     for (i = 0; i<pixels.length; i++) {
         pixels[i].remove();
     }
 }
 
 eraze();
+
+function getPixels() {
+    let pixels = document.querySelectorAll('.pixel');
+    return pixels;
+}
+
+
+
