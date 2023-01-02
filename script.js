@@ -11,6 +11,7 @@ function createGrid(gridSize) {
         square.appendChild(pixels[i]);
     }
     selectPixels(pixels);
+    return pixels;
 }
 // Restrict rows/columns to a max 100 for avoiding crashing/freezing
 function numberCheck() {
@@ -38,5 +39,19 @@ function launch() {
     launcher.addEventListener('click', () => numberCheck());
 }
 
-
 launch();
+
+function eraze() {
+    let erazer = document.querySelector('#eraze');
+    erazer.addEventListener('click', () => removeGrid());
+}
+
+// Remove all pixels created
+function removeGrid() {
+    let pixels = document.querySelectorAll('.pixel');
+    for (i = 0; i<pixels.length; i++) {
+        pixels[i].remove();
+    }
+}
+
+eraze();
