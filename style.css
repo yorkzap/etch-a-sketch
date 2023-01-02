@@ -28,7 +28,7 @@ ul {
 }
 
 #square {
-    border: red 1px solid; /* production */
+    border: black 1px solid; /* production */
     flex: 0 1 auto;
     height: 400px;
     width: 400px;
@@ -44,9 +44,10 @@ footer {
 }
 
 .pixel {
-    border: green 1px solid;
+    border: black 1px solid;
     flex: 1 1 auto;
     flex-wrap: wrap;
     box-sizing: border-box;
-    border-radius: 1px;
+    border-radius: 3px;
 }
+
