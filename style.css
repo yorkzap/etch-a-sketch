@@ -32,10 +32,21 @@ ul {
     flex: 0 1 auto;
     height: 400px;
     width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+
 }
 
 footer {
     display: flex;
     justify-content: center;
     margin-top: auto;
+}
+
+.pixel {
+    border: green 1px solid;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    border-radius: 1px;
 }
