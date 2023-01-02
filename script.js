@@ -1,10 +1,18 @@
-let square = document.querySelector('#square'); //Square shaped parent container for pixels
+const square = document.querySelector('#square'); //Square shaped parent container for pixels
 
-let erazer = document.querySelector('#eraze');
+const erazer = document.querySelector('#eraze');
 erazer.addEventListener('click', () => removeGrid());
 
-let launcher = document.querySelector('#launch');
+const launcher = document.querySelector('#launch');
 launcher.addEventListener('click', () => numberCheck());
+
+const psychedelic = document.querySelector('#psychedelic');
+psychedelic.addEventListener('click', () => {
+    let pixels = getPixels();
+    let newPencil = "#" + randomColor();
+    console.log(newPencil);
+    selectPixels(pixels, newPencil)
+});
 
 // Use rubber to eraze colored pixels
 let rubber = document.querySelector('#whitePencil');
@@ -48,7 +56,14 @@ function numberCheck() {
 // Select individual pixel upon mouseover
 function selectPixels(pixels, pencil) {
     for (let i = 0; i < pixels.length; i++ ) {
-        pixels[i].addEventListener('mouseenter', () => pixels[i].style.backgroundColor = pencil);
+        // Change color upon each mouseover
+        if (pencil !== "white" && pencil !== "black") {
+            pixels[i].addEventListener('mouseover', () => {
+            pencil = "#" + randomColor();
+            pixels[i].style.backgroundColor = pencil
+        });
+    }
+    pixels[i].addEventListener('mouseover', () => pixels[i].style.backgroundColor = pencil);
     }
 }
 
@@ -60,4 +75,8 @@ function removeGrid() {
     }
 }
 
-// Use rubber to eraze colored pixels
+// Generate random colors
+function randomColor() {
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    return randomColor;
+}
