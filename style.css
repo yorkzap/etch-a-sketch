@@ -1,3 +1,41 @@
-p {
-    color: green;
+html, body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.nav {
+    border: black 1px solid; /* production */
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    display: flex;
+    border: red 1px solid; /* production */
+    margin: 0px 25%;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.app {
+    display: flex;
+    border: black 1px solid; /* production */
+    justify-content: center;
+    align-items: top;
+    flex: 1 0 auto;
+}
+
+#square {
+    border: red 1px solid; /* production */
+    flex: 0 1 auto;
+    height: 500px;
+    width: 500px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
 }
