@@ -30,8 +30,8 @@ ul {
 #square {
     border: red 1px solid; /* production */
     flex: 0 1 auto;
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
 }
 
 footer {
