@@ -12,7 +12,7 @@ function createGrid(gridSize) {
         pixels[i].style.width = 100/gridSize + "%"; //Make items equally wide for "flex-wrapping"
         square.appendChild(pixels[i]);
     }
-    selectPixels(pixels, "green");
+    selectPixels(pixels, "black");
     return pixels;
 }
 // Restrict rows/columns to a max 100 for avoiding crashing/freezing
@@ -27,10 +27,16 @@ function numberCheck() {
 }
 
 // Select individual pixel upon mouseover
-function selectPixels(pixels) {
+function selectPixels(pixels, pencil) {
     for (let i = 0; i < pixels.length; i++ ) {
-        pixels[i].addEventListener('mouseenter', () => pixels[i].style.backgroundColor = "black");
+        pixels[i].addEventListener('mouseenter', () => {
+            console.log('mouseenter event triggered');
+            pixels[i].style.backgroundColor = pencil;
+            console.log(pencil);
+        });
+        
     }
+    return pencil;
 }
 
 function launch() {
@@ -61,13 +67,14 @@ function getPixels() {
     return pixels;
 }
 
-/*
-Instead of just changing the color of a square from black to white (for example), 
-have each pass through with the mouse change it to a completely random RGB value. 
-Then try having each pass just add another 10% of black to it so that only after 10 passes 
-is the square completely black.
+function whitePencil() {
+    let rubber = document.querySelector('#whitePencil');
+    rubber.addEventListener('click', () => {
+        let pixels = getPixels();
+        selectPixels(pixels, "white");
+    }
+    );
+}
 
-
-
-*/
+whitePencil();
 
