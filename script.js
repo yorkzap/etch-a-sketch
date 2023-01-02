@@ -6,12 +6,17 @@ erazer.addEventListener('click', () => removeGrid());
 const launcher = document.querySelector('#launch');
 launcher.addEventListener('click', () => numberCheck());
 
+const shade = document.querySelector('#shade');
+shade.addEventListener('click', () => {
+    setOpacity();
+});
+
 const psychedelic = document.querySelector('#psychedelic');
 psychedelic.addEventListener('click', () => {
     let pixels = getPixels();
-    let newPencil = "#" + randomColor();
-    console.log(newPencil);
-    selectPixels(pixels, newPencil)
+    let pencil = "#" + randomColor();
+    console.log(pencil);
+    selectPixels(pixels, pencil)
 });
 
 // Use rubber to eraze colored pixels
@@ -61,8 +66,9 @@ function selectPixels(pixels, pencil) {
             pixels[i].addEventListener('mouseover', () => {
             pencil = "#" + randomColor();
             pixels[i].style.backgroundColor = pencil
-        });
-    }
+            });
+        }
+        
     pixels[i].addEventListener('mouseover', () => pixels[i].style.backgroundColor = pencil);
     }
 }
@@ -79,4 +85,15 @@ function removeGrid() {
 function randomColor() {
     let randomColor = Math.floor(Math.random()*16777215).toString(16);
     return randomColor;
+}
+function setOpacity() {
+    let pixels = getPixels();
+    for (let i = 0; i < pixels.length;i++) {
+        let counter = 0;
+        pixels[i].addEventListener('mouseover', () =>{
+            counter++;
+            let opacity = 0.1 * counter;
+            pixels[i].style.opacity = opacity
+        })
+    }
 }
