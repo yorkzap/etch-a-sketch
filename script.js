@@ -2,7 +2,9 @@ let square = document.querySelector('#square'); //Square shaped parent container
 
 // Create "gridsize" number of pixels inside square
 function createGrid(gridSize) {
-    let pixels = [];
+    let pixels = document.querySelectorAll('.pixel');
+    if (pixels !== null) removeGrid();
+    pixels = [];
     let gridSizeSquare = gridSize*gridSize;
     for (let i = 0; i < gridSizeSquare; i++) {
         pixels[i] = document.createElement('div');
@@ -23,8 +25,6 @@ function numberCheck() {
     let pixels = createGrid(number);
     return pixels;
 }
-
-// Receive a nodelist of the pixels created
 
 // Select individual pixel upon mouseover
 function selectPixels(pixels) {
